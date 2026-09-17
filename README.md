@@ -1,3 +1,13 @@
+# Bomberman Remake
+
+A faithful browser remake of classic Bomberman (single-player Normal Mode first): grid maze, bombs, chain reactions, power-ups, hidden exit. Built with TypeScript + Phaser 3 + Vite per `ai/ARCHITECTURE.md`.
+
+**Start here:** `ai/PROJECT.md` → `ai/GAME_DESIGN.md` → `ai/DECISIONS.md` → `ai/CURRENT_STATE.md`
+
+Status: planning approved; implementation not yet started (see `ai/MILESTONES.md`).
+
+---
+
 # Universal AI Game Project Template — Arena.ai + Claude Code + GitHub
 
 ## Core workflow
