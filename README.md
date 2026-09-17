@@ -4,7 +4,7 @@ A faithful browser remake of classic Bomberman (single-player Normal Mode first)
 
 **Start here:** `ai/PROJECT.md` → `ai/GAME_DESIGN.md` → `ai/DECISIONS.md` → `ai/CURRENT_STATE.md`
 
-Status: planning approved; implementation not yet started (see `ai/MILESTONES.md`).
+Status: planning approved; ready for implementation — Claude Code starts at `ai/HANDOFF_BRIEF.md` (see `ai/MILESTONES.md`).
 
 ---
 

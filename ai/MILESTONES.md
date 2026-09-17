@@ -39,7 +39,7 @@ Goal:
 - Battle Mode decision point: propose scope (local hotseat vs AI opponents) for human approval
 
 ## Current milestone
-**Milestone 1 — Playable Vertical Slice** (Milestone 0 folded in as its first task). Status: planning approved, awaiting handoff to Claude Code.
+**Milestone 1 — Playable Vertical Slice** (Milestone 0 folded in as its first task). Status: planning approved; implementation-ready handoff brief at `ai/HANDOFF_BRIEF.md` (tasks T0–T7 for Claude Code).
 
 ## Current milestone scope
 See Milestone 0 + Milestone 1 above. Nothing else.

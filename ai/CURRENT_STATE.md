@@ -29,9 +29,9 @@ Planning **complete and fully approved** (2026-09-17). All 6 decisions locked in
 - Vision, MVP, systems, milestones and architecture fully defined and approved for single-player Normal Mode. Battle Mode and advanced power-ups explicitly deferred.
 
 ## Next tasks
-1. Handoff to Claude Code: Milestone 0 scaffold per `ai/ARCHITECTURE.md` + `ai/MILESTONES.md`.
-2. Milestone 1 implementation in the listed order, core logic + tests before rendering.
-3. Human playtest of stage 1 → Arena.ai review.
+1. Claude Code: execute `ai/HANDOFF_BRIEF.md` tasks T0–T7 in order (logic + tests before rendering), updating this file per task.
+2. Human playtest of stage 1 (final Milestone 1 gate) → Arena.ai review.
+3. On slice acceptance: Arena.ai proposes Milestone 2 scope for approval.
 
 ## Temporary work
 - Placeholder programmer art permitted until the retro pixel set lands (approved decision 2026-09-17).
