@@ -64,6 +64,11 @@ export default class GameScene extends Phaser.Scene {
   private overlayTitle!: Phaser.GameObjects.Text;
   private overlaySubtitle!: Phaser.GameObjects.Text;
 
+  private safeCueText!: Phaser.GameObjects.Text;
+  private safeCueTimer = 0;
+  private wasAllEnemiesDead = false;
+  private static readonly SAFE_CUE_DURATION = 3;
+
   constructor() {
     super('Game');
   }
@@ -86,6 +91,22 @@ export default class GameScene extends Phaser.Scene {
     this.playerSprite = this.add.image(0, 0, 'player_a').setDepth(4);
     this.buildHUD();
     this.buildOverlay();
+    this.buildSafeCue();
+  }
+
+  private buildSafeCue(): void {
+    const w = this.state.stageData.cols * T;
+    this.safeCueText = this.add
+      .text(w / 2, 26, 'ALL ENEMIES CLEARED — SAFE TO BOMB', {
+        fontFamily: 'monospace',
+        fontSize: '13px',
+        color: '#8fff8f',
+        backgroundColor: '#000000aa',
+        padding: { x: 6, y: 3 },
+      })
+      .setOrigin(0.5, 0)
+      .setDepth(11)
+      .setVisible(false);
   }
 
   private buildTileLayer(): void {
@@ -164,6 +185,22 @@ export default class GameScene extends Phaser.Scene {
     this.redrawActors(dt);
     this.updateHUD();
     this.updateOverlay();
+    this.updateSafeCue(dt);
+  }
+
+  private updateSafeCue(dt: number): void {
+    const allDead = this.state.enemies.length > 0 && this.state.enemies.every((e) => !e.alive);
+    if (allDead && !this.wasAllEnemiesDead) {
+      this.safeCueTimer = GameScene.SAFE_CUE_DURATION;
+    }
+    this.wasAllEnemiesDead = allDead;
+
+    if (this.safeCueTimer > 0 && this.state.phase === 'playing' && !this.state.paused) {
+      this.safeCueTimer -= dt;
+      this.safeCueText.setVisible(true).setAlpha(Math.min(1, this.safeCueTimer));
+    } else if (this.safeCueTimer <= 0) {
+      this.safeCueText.setVisible(false);
+    }
   }
 
   private redrawTiles(): void {
