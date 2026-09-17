@@ -1,0 +1,1 @@
+# World\n\n## World concept\n-\n\n## Locations\n-\n\n## Rules\n-\n
