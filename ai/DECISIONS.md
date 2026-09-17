@@ -50,23 +50,47 @@ Proposed → Human approval → Recorded here → Project truth
 
 ---
 
-## Proposed decisions awaiting human approval
+### 2026-09-17 Decision: Lives & death model — classic 3 lives, stage restart on life lost
+**Status:** Approved
+**Decision:**
+- Player has 3 lives per stage attempt. Losing a life restarts the stage from scratch (stats, blocks, enemies, items and timer all reset to stage-data defaults).
+- 0 lives remaining → stage fail.
 
-### [PROPOSED] Decision: Lives & death model
-**Status:** Proposed
-**Decision:** Classic 3 lives; losing a life restarts the stage from scratch (stats reset). 0 lives → stage fail.
-**Reason:** Authentic arcade tension; simple to implement; instant-restart UX keeps frustration low.
-**Alternative:** 1 life per attempt (harder, more roguelike).
+**Reason:**
+- Authentic arcade tension; simple to implement; instant-restart UX keeps frustration low.
+- Rejected alternative: 1 life per attempt (harder, more roguelike).
 
-### [PROPOSED] Decision: Stage size 13×11
-**Status:** Proposed
-**Decision:** Classic odd-dimension grid, 13 columns × 11 rows of playfield inside the hard-block border.
-**Reason:** Proven classic proportions; fits browser viewports with large tiles for readability.
+**Affected systems/documents:** `ai/GAME_DESIGN.md`, `ai/LEVEL_DESIGN.md` (stage JSON `lives: 3`), `src/core/stage.ts` (future)
 
-### [PROPOSED] Decision: Items only under soft blocks
-**Status:** Proposed
-**Decision:** Enemies do not drop items in the MVP; all items are pre-placed under soft blocks in stage data.
-**Reason:** Simpler balancing and content rules; enemy item drops can be added in Milestone 2 if desired.
+**Implementation notes:** Stage fail overlay must show reason (lives exhausted / timeout / door destroyed).
+
+---
+
+### 2026-09-17 Decision: Stage size — 13×11 grid
+**Status:** Approved
+**Decision:**
+- Classic odd-dimension grid: 13 columns × 11 rows total, including the hard-block border (11×9 interior playfield).
+
+**Reason:**
+- Proven classic proportions; fits browser viewports with large tiles for readability.
+
+**Affected systems/documents:** `ai/LEVEL_DESIGN.md`, `ai/ART_DIRECTION.md` (tile sizing), stage1.json (future)
+
+**Implementation notes:** Grid dimensions stay data-driven (cols/rows in stage JSON) so larger arenas are possible later without code changes.
+
+---
+
+### 2026-09-17 Decision: Items only under soft blocks (no enemy drops in MVP)
+**Status:** Approved
+**Decision:**
+- All items are pre-placed under soft blocks in stage data. Enemies do not drop items in the MVP.
+
+**Reason:**
+- Simpler balancing and content rules; enemy item drops can be revisited in Milestone 2 if playtesting wants them.
+
+**Affected systems/documents:** `ai/GAME_DESIGN.md` (content rules), `ai/LEVEL_DESIGN.md` (validation: every item under a soft block)
+
+**Implementation notes:** Validation test enforces "every item under a soft block" so the rule cannot silently drift.
 
 ## Rules
 - Major creative/design decisions require human approval.

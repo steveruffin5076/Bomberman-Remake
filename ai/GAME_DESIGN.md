@@ -38,6 +38,8 @@ Recreate the core Bomberman experience (Hudson Soft, 1983 lineage) as a tight, r
   - MVP caps: Fire ≤ 6, Bombs ≤ 6, Speed ≤ 3 steps.
 - **Exit door:** hidden under exactly one soft block per stage. Stepping on it with all enemies defeated completes the stage. If the exit door's tile is hit by an explosion **before all enemies are dead**, the door is destroyed → stage failed (classic rule). If revealed after enemies are cleared, it simply remains usable.
 - **Timer:** per-stage countdown (e.g. 200 s). Time out = fail. No sudden death in Normal Mode (that is a Battle Mode mechanic — deferred).
+- **Lives:** 3 lives per attempt (approved). Losing a life restarts the stage from scratch — stats, blocks, enemies, items and timer all reset to stage-data defaults. 0 lives → stage fail.
+- **Stage size:** 13×11 tiles including the hard-block border (approved); dimensions remain data-driven for future stages.
 
 ### Deferred power-ups (explicitly NOT in MVP)
 Kick, Throw/Punch, Heart/Shield — require Battle Mode or polish milestone; deferred to avoid speculative systems.
@@ -87,6 +89,7 @@ MVP is a single stage. Milestone 2 adds a small stage ladder (e.g. 5–8 stages)
 - HUD minimal: timer, remaining bombs, lives, enemy count.
 
 ## Open design questions
-1. Lives system: classic 3 lives with full stage reset on death, or arcade-style single life per stage attempt? (Proposed default: 3 lives, restart stage from scratch on life lost.)
-2. MVP stage size: classic 13×11 (odd dimensions) vs larger 15×13? (Proposed default: 13×11.)
-3. Should enemies drop items on death (some classic versions do) or are items only under blocks? (Proposed default: blocks only, for MVP simplicity.)
+None blocking. All Milestone 1 design questions resolved — see approved decisions of 2026-09-17 in `ai/DECISIONS.md`:
+- Lives model: 3 lives, stage restarts from scratch on life lost (Approved)
+- Stage size: 13×11 including hard-block border (Approved)
+- Items: only under soft blocks; no enemy drops in MVP (Approved)
