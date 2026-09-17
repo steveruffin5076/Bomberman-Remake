@@ -39,7 +39,7 @@ Goal:
 - Battle Mode decision point: propose scope (local hotseat vs AI opponents) for human approval
 
 ## Current milestone
-**Milestone 1 — Playable Vertical Slice** (Milestone 0 folded in as its first task). Status: planning approved; implementation-ready handoff brief at `ai/HANDOFF_BRIEF.md` (tasks T0–T7 for Claude Code).
+**Milestone 1 — Playable Vertical Slice** (Milestone 0 folded in as its first task). Status: implementation complete (tasks T0–T7 done per `ai/HANDOFF_BRIEF.md`), all automated tests green, verified playable in-browser. Awaiting human playtest gate before Milestone 2 is proposed. See `ai/CURRENT_STATE.md` for details, including one flagged open question about the placeholder-vs-final pixel art asset pass.
 
 ## Current milestone scope
 See Milestone 0 + Milestone 1 above. Nothing else.
